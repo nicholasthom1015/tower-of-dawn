@@ -14,7 +14,6 @@ public class TypewriterEffect : MonoBehaviour
     {
         fullText = textComponent.text;
         textComponent.text = "";
-        StartCoroutine(TypeText());
     }
 
     IEnumerator TypeText()
@@ -24,5 +23,11 @@ public class TypewriterEffect : MonoBehaviour
             textComponent.text += c;
             yield return new WaitForSeconds(typingSpeed);
         }
+    }
+
+    public void Typewriter(string InputText)
+    {
+        fullText = InputText;
+        StartCoroutine(TypeText());
     }
 }
